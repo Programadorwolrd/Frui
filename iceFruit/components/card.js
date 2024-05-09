@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     card: {
         alignItems: 'center',
         width: 150,
-        height: 130,
-        backgroundColor: 'red',
+        height: 225,
+        backgroundColor: '#808080',
         borderRadius: 5,
         marginVertical: 10,
         marginHorizontal: 10
@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
         marginVertical: 10,
     },
     photoImg: {
-        width: 100,
-        height: 70,
+        width: 120,
+        height: 200,
     },
     nome: {
         marginTop: 4

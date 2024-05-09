@@ -34,7 +34,19 @@ const App = () => {
       photo: { uri: 'https://picsum.photos/2200' },
       nome: 'Produto 2',
     },
-    
+    {
+      photo: { uri: 'https://picsum.photos/140' },
+      nome: 'Produto 2',
+    },
+    // Adicione mais produtos conforme necessário
+    {
+      photo: { uri: 'https://picsum.photos/1007' },
+      nome: 'Produto 2',
+    },
+    {
+      photo: { uri: 'https://picsum.photos/350' },
+      nome: 'Produto 2',
+    },
   ];
 
   return (

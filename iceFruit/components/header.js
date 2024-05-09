@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: 500,
         height: 60,
-        backgroundColor: 'green',
+        backgroundColor: 'black',
         
     },
 })
