@@ -1,0 +1,6 @@
+1- baixar o expo   =   npx create-expo-app@latest --template
+2- Adicionar o tunnnel nos scripts(serve pra quando vc ta em redes diferentes) =   "start": "expo start --tunnel",
+3-
+
+
+liga apaxe no xap eo mysql e clica no adm na frente do mysql dentro php myadm faz no padrao o gneracl ci
