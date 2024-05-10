@@ -3,10 +3,11 @@ import { FlatList, View, StyleSheet } from 'react-native';
 import Card from './components/card'; // Ajuste o caminho de acordo com a localização do arquivo Card.js
 import Header from'./components/header';
 import { Image } from 'react-native'
-
+import { useNavigation } from '@react-navigation/native';
 
 
 const App = () => {
+  const navigation = useNavigation();
   const products = [
     {
       photo: { uri: 'https://picsum.photos/3200' },
@@ -54,6 +55,10 @@ const App = () => {
   return (
     <View>
     <Header/>
+    <Button
+        title="Cadastrar Produto"
+        onPress={() => navigation.navigate('CadastroProduto')}
+      />
     <Image
         style={styles.Banner}
         source={require('./assets/banner.png')}
@@ -74,8 +79,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   Banner:{
-    justifyContent: 'center',
-    alignItems: 'center',
         width: 500,
         height: 240,
         
