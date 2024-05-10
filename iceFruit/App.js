@@ -2,6 +2,8 @@ import React from 'react';
 import { FlatList, View, StyleSheet } from 'react-native';
 import Card from './components/card'; // Ajuste o caminho de acordo com a localização do arquivo Card.js
 import Header from'./components/header';
+import { Image } from 'react-native'
+
 
 
 const App = () => {
@@ -52,6 +54,10 @@ const App = () => {
   return (
     <View>
     <Header/>
+    <Image
+        style={styles.Banner}
+        source={require('./assets/banner.png')}
+      />
     <FlatList
       data={products}
       renderItem={({ item }) => <Card product={item} />}
@@ -67,6 +73,13 @@ const styles = StyleSheet.create({
   list: {
     justifyContent: 'center',
   },
+  Banner:{
+    justifyContent: 'center',
+    alignItems: 'center',
+        width: 500,
+        height: 240,
+        
+  }
 });
 
 export default App;
