@@ -7,10 +7,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model user {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique(map: "User_email_key")
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime
+model bebida {
+  id         Int     @id @default(autoincrement())
+  nome       String
+  preco      String
+  quantidade String?
+}
+
+model comida {
+  id    Int    @id @default(autoincrement())
+  nome  String
+  preco String
 }
