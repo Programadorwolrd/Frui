@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import axios from 'axios';
+
 
 export default function CadastrarProduto() {
   const [nome, setNome] = useState('');
+  const [quantidade, setQuantidade] = useState('');
   const [preco, setPreco] = useState('');
 
-  const handlePress = () => {
-    // Aqui você pode adicionar a lógica para lidar com o pressionamento do botão
+  const ProdutoCadastrar = async () => {
+    try {
+      const response = await axios.post('http://127.0.0.1:3050/produtos/cadastrar', {
+        nome: nome,
+        preco:preco,
+        quantidade:quantidade,
+      });
+
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
+
 
   return (
     <View style={styles.container}>
@@ -30,7 +44,16 @@ export default function CadastrarProduto() {
         keyboardType="numeric"
       />
 
-      <TouchableOpacity style={styles.button} onPress={handlePress}>
+<Text>Quantidade:</Text>
+      <TextInput
+        style={styles.input}
+        value={quantidade}
+        onChangeText={setQuantidade}
+        placeholder="Digite o preço do produto"
+        keyboardType="numeric"
+      />
+
+      <TouchableOpacity style={styles.button} onPress={ProdutoCadastrar}>
         <Text style={styles.buttonText}>Cadastrar</Text>
       </TouchableOpacity>
     </View>

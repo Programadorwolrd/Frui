@@ -2,7 +2,7 @@ import {Text, View, StyleSheet} from 'react-native'
 import { Image } from 'react-native'
 
 
-const Card = ({product}) => {
+const CardProduto = ({product}) => {
   return (
     <View style={styles.card}>
         <View style={styles.photo}>
@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Card
+export default CardProduto;

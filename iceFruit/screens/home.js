@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { FlatList, View, StyleSheet, Image } from 'react-native';
-import Card from './../components/card'; // Ajuste o caminho de acordo com a localização do arquivo Card.js
+import CardProduto from '../components/card'; // Ajuste o caminho de acordo com a localização do arquivo Card.js
 import Header from '../components/header'; // Ajuste o caminho de acordo com a localização do arquivo Header.js
 import { useNavigation } from '@react-navigation/native';
 
@@ -40,7 +40,7 @@ const home = () => {
         />
         <FlatList
           data={products}
-          renderItem={({ item }) => <Card product={item} />}
+          renderItem={({ item }) => <CardProduto product={item} />}
           keyExtractor={(item, index) => index.toString()}
           numColumns={3}
           contentContainerStyle={styles.list}
