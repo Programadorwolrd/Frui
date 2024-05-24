@@ -7,3 +7,5 @@ com o frontned e no front tambembaixo no app
 6- agora crio as rotas backend dentro da pasta routes e chamo elas no meu server.js que foi criado na mão
 7- baixa npm nodmon isso vai fazer vc nao ter que ficar ligando e desligando o servidor sempre que alterar algo
 liga apaxe no xap eo mysql e clica no adm na frente do mysql dentro php myadm faz no padrao o gneracl ci
+
+10- npm install --save-dev jest supertest para criar um teste automatizado ai criei um teste e executei com np teste 
