@@ -1,4 +1,6 @@
 import express from 'express';
+import https from 'https';
+import fs from 'fs';
 const app = express();
 // Middleware para analisar o corpo das solicitações como JSON ( necessario só copiar essa linha)
 app.use(express.json());
@@ -16,8 +18,13 @@ app.use('/vendedores', vendedorRoutes);
 app.use('/produtos', produtoRoutes);
 
 
-//aqui eu informo a porta do servodpr e uma alternativa caso nao tenha
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+
+const httpsOptions = {
+  key: fs.readFileSync('./server.key'),
+  cert: fs.readFileSync('./server.crt')
+};
+
+https.createServer(httpsOptions, app).listen(PORT, () => {
+  console.log(`HTTPS Server is running on port ${PORT}`);
 });

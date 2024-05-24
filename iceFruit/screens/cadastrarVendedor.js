@@ -1,19 +1,29 @@
+import axios from 'axios';
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
+
+
 
 export default function CadastrarVendedor() {
+  
   const [nome, setNome] = useState('');
   const [cpf, setCpf] = useState('');
 
-  const handlePress = () => {
-    // Aqui você pode adicionar a lógica para lidar com o pressionamento do botão
+  const handlePress = async () => {
+    try {
+      const response = await axios.post('https://127.0.0.1:3050/vendedores/cadastrar', {
+        nome: nome,
+        cpf: cpf
+      });
+
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <View style={styles.container}>
-      <Text>Cadastrar Vendedor</Text>
-      
-      <Text>Nome:</Text>
       <TextInput
         style={styles.input}
         value={nome}
@@ -21,7 +31,6 @@ export default function CadastrarVendedor() {
         placeholder="Digite o nome do vendedor"
       />
 
-      <Text>CPF:</Text>
       <TextInput
         style={styles.input}
         value={cpf}

@@ -9,3 +9,6 @@ com o frontned e no front tambembaixo no app
 liga apaxe no xap eo mysql e clica no adm na frente do mysql dentro php myadm faz no padrao o gneracl ci
 
 10- npm install --save-dev jest supertest para criar um teste automatizado ai criei um teste e executei com np teste 
+
+tive que fazer umas parada pra minmha rota poder ser https pegar certificado de ssl com uns comandos e mudar o servidor.js pra https
+11-lembra de usar 127.0.1
