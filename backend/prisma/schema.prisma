@@ -14,8 +14,8 @@ model bebida {
   quantidade String?
 }
 
-model vendedor {
+model Vendedor {
   id   Int    @id @default(autoincrement())
   nome String
-  cpf  String
+  cpf  String @unique
 }

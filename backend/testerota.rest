@@ -1,0 +1,7 @@
+POST http://localhost:3050/vendedores HTTP/1.1
+content-type: application/json
+
+{
+  "nome": "Nome do Vendedor",
+  "cpf": "408191928"
+}
