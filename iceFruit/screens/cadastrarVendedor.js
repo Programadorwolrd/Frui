@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 
-
 export default function CadastrarVendedor() {
   
   const [nome, setNome] = useState('');
