@@ -6,13 +6,14 @@ const router = express.Router();
 
 
 router.post('/cadastrar', async (req, res) => {
-    const { nome, preco } = req.body;
+    const { nome, preco,quantidade } = req.body;
 
     try {
       const newProduto = await prisma.produto.create({
         data: {
           nome,
           preco,
+          quantidade
         },
       });
   
@@ -23,23 +24,14 @@ router.post('/cadastrar', async (req, res) => {
   });
 
 
-  router.post('/', async (req, res) => {
-    const { nome, preco } = req.body;
-  
+  router.get('/', async (req, res) => {
     try {
-      const newProduto = await prisma.produto.create({
-        data: {
-          nome,
-          preco,
-        },
-      });
-  
-      res.status(201).json(newProduto);
+        const produtos = await prisma.produto.findMany();
+        res.status(200).json(produtos);
     } catch (error) {
-      res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
-  });
-
+});
 
 
 

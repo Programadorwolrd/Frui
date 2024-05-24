@@ -1,38 +1,33 @@
-import React from 'react';
-import { Text } from 'react-native';
-import { FlatList, View, StyleSheet, Image } from 'react-native';
-import CardVendedor from '../components/cardVendedor';// Ajuste o caminho de acordo com a localização do arquivo Card.js
-import Header from '../components/header'; // Ajuste o caminho de acordo com a localização do arquivo Header.js
-
-
+import React, { useState, useEffect } from 'react';
+import { Text, FlatList, View, StyleSheet, Image } from 'react-native';
+import CardVendedor from '../components/cardVendedor';
+import Header from '../components/header';
+import axios from 'axios';
 
 export default function Vendedores() {
-  const vendedores = [
-      {
-        photo: { uri: 'https://picsum.photos/3240' },
-        nome: 'Produto 1',
-      },
-     
-      // Adicione mais produtos conforme necessário
-    ];
-return (
-  <View>
-    
-    <Header />
-      {/* <Button
-          title="Cadastrar Produto"
-          onPress={() => navigation.navigate('CadastroProduto')}
-        /> */}
-        <Text>Vendedores Ativos</Text>
-    <FlatList
+  const [vendedores, setVendedores] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:3050/vendedores')
+      .then(function (response) {
+        // handle success
+        setVendedores(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, []);
+
+  return (
+    <View>
+      <FlatList
         data={vendedores}
-        renderItem={({ item }) => <CardVendedor product={item} />}
-        keyExtractor={(item, index) => index.toString()}
-        numColumns={3}
-        contentContainerStyle={styles.list}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => <CardVendedor vendedor={item} />}
       />
-  </View>
-);
+    </View>
+  );
 };
 const styles = StyleSheet.create({
   list: {

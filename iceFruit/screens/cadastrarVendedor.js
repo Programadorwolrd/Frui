@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 
+
+
+
+
 export default function CadastrarVendedor() {
   
   const [nome, setNome] = useState('');
@@ -10,7 +14,7 @@ export default function CadastrarVendedor() {
 
   const handlePress = async () => {
     try {
-      const response = await axios.post('https://127.0.0.1:3050/vendedores/cadastrar', {
+      const response = await axios.post('http://127.0.0.1:3050/vendedores/cadastrar', {
         nome: nome,
         cpf: cpf
       });

@@ -7,15 +7,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model bebida {
+model produto {
   id         Int     @id @default(autoincrement())
   nome       String
   preco      String
   quantidade String?
 }
 
-model Vendedor {
+model vendedor {
   id   Int    @id @default(autoincrement())
   nome String
-  cpf  String @unique
+  cpf  String @unique(map: "Vendedor_cpf_key")
 }
