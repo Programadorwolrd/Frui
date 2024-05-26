@@ -1,24 +1,23 @@
-import {Text, View, StyleSheet} from 'react-native'
-import { Image } from 'react-native'
-
+import {Text, View, StyleSheet, Image} from 'react-native'
 
 const CardProduto = ({product}) => {
+  const defaultImage = 'https://photos.tryotter.com/menu-photos/81a3905d-bfc5-4fa8-a793-87fa63849af6.jpeg';
+  const productImage = product.photo ? product.photo : defaultImage;
+
   return (
     <View style={styles.card}>
         <View style={styles.photo}>
             <Image
                 style={styles.photoImg}
-                source={product.photo}
+                source={{ uri: productImage }}
             />
         </View>
         <View>
-            
             <Text style={styles.nome}>R$ {product.nome}</Text>
         </View>
     </View>
   )
 }
-
 const styles = StyleSheet.create({
     card: {
         alignItems: 'center',

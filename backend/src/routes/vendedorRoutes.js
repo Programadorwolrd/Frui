@@ -40,12 +40,32 @@ router.get('/', async (req, res) => {
 });
 
 
+router.delete('/delete', async (req, res) => {
+  try {
+    await prisma.vendedor.deleteMany({});
+    res.status(200).json({ message: "Todos os vendedores foram deletados" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 
+//ROTA DESATIVADA POIS NAO QUERO OPÇÃO DE ATUALIZAR VENDEDOR
+// router.put('/update/:id', async (req, res) => {
+//   const { id } = req.params;
+//   const { cpf } = req.body;
 
+//   try {
+//     const vendedor = await prisma.vendedor.update({
+//       where: { id: Number(id) },
+//       data: { cpf: cpf },
+//     });
 
-
-
+//     res.status(200).json({ message: "Vendedor atualizado com sucesso", vendedor });
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// });
 
 
 
